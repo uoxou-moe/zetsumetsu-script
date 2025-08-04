@@ -1,0 +1,31 @@
+⭐️ {
+	Animal 🌵 cat := new Animal(3, "meow", "cat");
+	
+	setAge(cat, 5);
+}
+
+void 🌺 setAge := (🦠 Animal 🌵 animal, int 🌵 age) {
+	// 🦠マーカーのついたメソッドを呼び出すため、animal は感染する。
+	animal.setAge(age);
+}
+
+🦕 Animal := {
+	int 🌵 age;
+	str 🌵 bark;
+	str 🌵 name;
+
+	🪺 := (int 🌵 age, str 🌵 bark, str 🌵 name) {
+		this.age := age;
+		this.bark := bark;
+		this.name := name;
+	}
+
+	☄️ void 🌺 bark := {
+		log(this.bark);
+	}
+
+	// 🦠マーカーはフィールドの変更を示す。🦠マーカーのついたメソッドの呼び出しは🦠を感染させる。
+	🦠 void 🌺 setAge := (int 🌵 age) {
+		this.age = age;
+	}
+}
