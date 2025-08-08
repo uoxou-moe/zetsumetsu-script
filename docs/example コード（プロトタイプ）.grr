@@ -29,3 +29,12 @@ void 🌺 setAge := (🦠 Animal 🌵 animal, int 🌵 age) {
 		this.age = age;
 	}
 }
+
+🧊<str> 🌺 readLine() := {};
+
+void 🌺 log(str: input) := {};
+
+🧊<void> 🌺 output() := {
+	🧊<str> input = readLine();
+	return input.map(i => log(i));
+};
