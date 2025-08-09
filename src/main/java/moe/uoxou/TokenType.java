@@ -12,6 +12,12 @@ public enum TokenType {
 	LPAREN,
 	RPAREN,
 	SEMICOLON,
+
+	// Keywords
+	NUMBER_KEYWORD,
+	STRING_KEYWORD,
+	BOOLEAN_KEYWORD,
+
 	WHITESPACE,
 	UNKNOWN
 }

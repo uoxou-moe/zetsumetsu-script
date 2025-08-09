@@ -16,7 +16,10 @@ public class Lexer implements ILexer {
 	}
 
 	private static final Pattern TOKEN_PATTERNS = Pattern.compile(
-			"(?<identifier>[A-Za-z_][A-Za-z0-9_]*)"
+			"(?<numberKeyword>\\bnumber\\b|#⃣)"
+					+ "|(?<stringKeyword>\\bstring\\b|\uD83D\uDD24)"
+					+ "|(?<booleanKeyword>\\bboolean\\b|❗)"
+					+ "|(?<identifier>[A-Za-z_][A-Za-z0-9_]*)"
 					+ "|(?<number>[0-9]+)"
 					+ "|(?<colonEquals>:=)"
 					+ "|(?<plus>\\+)"
@@ -61,6 +64,12 @@ public class Lexer implements ILexer {
 				tokens.add(new Token(TokenType.RPAREN, matcher.group("rparen")));
 			} else if (matcher.group("semicolon") != null) {
 				tokens.add(new Token(TokenType.SEMICOLON, matcher.group("semicolon")));
+			} else if (matcher.group("numberKeyword") != null) {
+				tokens.add(new Token(TokenType.NUMBER_KEYWORD, matcher.group("numberKeyword")));
+			} else if (matcher.group("stringKeyword") != null) {
+				tokens.add(new Token(TokenType.STRING_KEYWORD, matcher.group("stringKeyword")));
+			} else if (matcher.group("booleanKeyword") != null) {
+				tokens.add(new Token(TokenType.BOOLEAN_KEYWORD, matcher.group("booleanKeyword")));
 			} else {
 				tokens.add(new Token(TokenType.UNKNOWN, matcher.group()));
 			}
