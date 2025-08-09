@@ -1,0 +1,17 @@
+package moe.uoxou;
+
+public enum TokenType {
+	IDENTIFIER,
+	NUMBER,
+	COLON_EQUALS,
+	PLUS,
+	MINUS,
+	MULTIPLY,
+	DIVIDE,
+	MODULO,
+	LPAREN,
+	RPAREN,
+	SEMICOLON,
+	WHITESPACE,
+	UNKNOWN
+}
